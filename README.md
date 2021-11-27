@@ -18,3 +18,5 @@ This is an incredibly useful utility to display your level of happiness with str
 
     ARGS:  
         in-path    The path to read from
+
+![Alt text](/images/sTrInGs.png?raw=true "Sample usage")
