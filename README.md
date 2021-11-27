@@ -7,6 +7,7 @@ This is an incredibly useful utility to display your level of happiness with str
 
     FLAGS:  
         -h, --help       Prints help information  
+        -o, --offset     Print the hex offset within the file before each string
         -V, --version    Prints version information  
 
     OPTIONS:  
