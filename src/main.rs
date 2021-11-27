@@ -32,16 +32,16 @@ struct Cli {
     #[structopt(parse(from_os_str))]
     in_path: std::path::PathBuf,
 
-    /// length to search for
+    /// minimum length to search for
     #[structopt(short = "n", long = "--bytes", default_value = "4")]
     n: usize,
 
-    ///prob of swapping case
+    ///probability of swapping case
     #[structopt(short = "p", long = "--swap-prob", alias = "-", default_value = "0.5")]
     p: f32,
-
-    #[structopt(short = "e", long = "--encoding", possible_values=&["s", "S", "b", "l"], default_value="S", help="Select character size and endianness:
-    s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit")]
+    ///Select character size and endianness:
+    ///s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit
+    #[structopt(short = "e", long = "--encoding", possible_values=&["s", "S", "b", "l"], default_value="S")]
     e: Encodings,
 }
 fn is_ascii_printable(ch: char) -> bool {
