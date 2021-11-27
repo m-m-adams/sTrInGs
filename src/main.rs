@@ -25,7 +25,7 @@ impl FromStr for Encodings {
     }
 }
 
-/// Search for a pattern in a file and display the lines that contain it.
+/// Search for strings in a file and print them sarcastically
 #[derive(StructOpt)]
 struct Cli {
     /// The path to read from
@@ -37,11 +37,11 @@ struct Cli {
     n: usize,
 
     ///prob of swapping case
-    #[structopt(short = "p", long = "--swap-prob", default_value = "0.5")]
+    #[structopt(short = "p", long = "--swap-prob", alias = "-", default_value = "0.5")]
     p: f32,
 
-    ///encoding
-    #[structopt(short = "e", long = "--encoding", possible_values=&["s", "S", "b", "l"], default_value="S")]
+    #[structopt(short = "e", long = "--encoding", possible_values=&["s", "S", "b", "l"], default_value="S", help="Select character size and endianness:
+    s = 7-bit, S = 8-bit, {b,l} = 16-bit, {B,L} = 32-bit")]
     e: Encodings,
 }
 fn is_ascii_printable(ch: char) -> bool {
