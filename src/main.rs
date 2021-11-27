@@ -1,5 +1,6 @@
 mod strings;
 use std::error::Error;
+use std::fmt;
 use std::fs;
 use strings::Encoding;
 pub use structopt::StructOpt;
@@ -48,7 +49,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let f = match f {
         Ok(file) => file,
-        Err(error) => panic!("Problem opening the file: {:?}", error),
+        Err(error) => return Err(format!("Problem opening the file: {:?}", error.kind()))?,
     };
     match opt.enc {
         strings::Encoding::UTF8 => strings::find_strings_ascii(f, &opt),
